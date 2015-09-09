@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:text="Wprowadź słowny numer telefonu:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberText" />
+    <Button
+        android:text="Tłumacz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/translateButton" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/translatedNumber" />
+    <Button
+        android:text="Zadzwoń"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/callButton"
+        android:enabled="false" />
+    <Button
+        android:text="@string/CallHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        android:enabled="false" />
+</LinearLayout>
