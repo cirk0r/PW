@@ -3,36 +3,20 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <TextView
-        android:text="Wprowadź słowny numer telefonu:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberText" />
     <Button
-        android:text="Tłumacz"
+        android:text="Lista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/translateButton" />
-    <TextView
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/translatedNumber" />
+        android:id="@+id/myRemindersButton" />
     <Button
-        android:text="Zadzwoń"
+        android:text="Dodaj"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/callButton"
-        android:enabled="false" />
+        android:id="@+id/addReminderButton" />
     <Button
         android:text="@string/CallHistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button1"
+        android:id="@+id/historyButton"
         android:enabled="false" />
 </LinearLayout>
