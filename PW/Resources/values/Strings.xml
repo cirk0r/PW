@@ -2,9 +2,9 @@
 <resources>
     <string name="ApplicationName">PW</string>
     <string name="Author">Mirosław Cis</string>
-    <string name="CallHistory">Historia połączeń</string>
     <string name="Reminder">Reminder</string>
     <string name="Server">Server</string>
     <string name="CallHistory">Historia</string>
     <string name="Title">Słowofon</string>
+    <string name="AddReminderHeader">Nowe przypomnienie</string>
 </resources>

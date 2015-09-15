@@ -24,7 +24,6 @@ namespace PW
         {
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
             activityCreator = new ActivityCreator();
@@ -41,22 +40,18 @@ namespace PW
         #region Events
         private void AddReminderButton_Click(object sender, EventArgs e)
         {
-            //activityCreator.CreateActivity<AddReminderActivity>(this);
             var intent = new Intent(this, typeof(AddReminderActivity));
             StartActivityForResult(intent, 0);
         }
 
         private void MyRemindersButton_Click(object sender, EventArgs e)
         {
-            //activityCreator.CreateActivity<MyRemindersActivity>(this, "reminders", new List<ReminderModel>());
             var intent = new Intent(this, typeof(MyRemindersActivity));
-            intent.PutParcelableArrayListExtra("reminders", ((IList<IParcelable>)(new List<ReminderModel>())));
             StartActivity(intent);
         }
 
         private void CallHistoryButton_Click(object sender, EventArgs e)
         {
-            //activityCreator.CreateActivity<CallHistoryActivity>(this, "phoneNumbers", phoneNumbers);
             var intent = new Intent(this, typeof(CallHistoryActivity));
             intent.PutStringArrayListExtra("phoneNumbers", phoneNumbers);
             StartActivity(intent);
@@ -88,8 +83,6 @@ namespace PW
         //}
 
         #endregion
-
-        
     }
 }
 

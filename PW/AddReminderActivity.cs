@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace PW
 {
-    [Activity(Label = "AddReminderActivity")]
+    [Activity(Label = "@string/AddReminderHeader")]
     public class AddReminderActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
@@ -21,5 +21,7 @@ namespace PW
             SetContentView(Resource.Layout.AddReminder);
             // Create your application here
         }
+
+
     }
 }
