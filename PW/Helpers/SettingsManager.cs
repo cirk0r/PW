@@ -1,14 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
@@ -19,11 +10,19 @@ namespace PW.Helpers
     {
         private XmlSerializer _serializer;
         private Stream _inputStream;
-        private string _filePath;
 
         public SettingsManager(Stream fileStream)
         {
             _inputStream = fileStream;
+            if (_inputStream != null)
+            {
+                _serializer = new XmlSerializer(typeof(T));
+            }
+        }
+
+        public SettingsManager(string filePath)
+        {
+            _inputStream = new FileStream(filePath, FileMode.OpenOrCreate);
             if (_inputStream != null)
             {
                 _serializer = new XmlSerializer(typeof(T));
@@ -36,7 +35,7 @@ namespace PW.Helpers
         /// <param name="value">obiekt do zserializowania</param>
         /// <param name="serializeXml">zserializowany xml</param>
         /// <returns></returns>
-        public bool Serialize(T value, ref string serializeXml)
+        public bool Serialize(List<T> value, ref string serializeXml)
         {
             if (value == null)
             {
@@ -63,26 +62,26 @@ namespace PW.Helpers
         /// <summary>
         /// Deserializacja strumienia ustawień
         /// </summary>
-        /// <returns></returns>
+        /// <returns>lista przypomnień</returns>
         public List<T> Deserialize()
         {
             try
             {
-                //StringReader stringReader = new StringReader(serializeXml.ToString());
-                XmlReader reader = XmlReader.Create(_inputStream);
+                StreamReader sr = new StreamReader(_inputStream);
+                XmlTextReader xtr = new XmlTextReader(sr);
 
-                var data = _serializer.Deserialize(reader);
-                reader.Close();
+                var data = _serializer.Deserialize(xtr);
+                sr.Close();
 
                 if (data is List<T>)
                     return (List<T>)data;
 
-                return null;
+                return new List<T>();
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
-                return null;
+                return new List<T>();
             }
         }
     }

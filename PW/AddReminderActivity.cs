@@ -21,7 +21,5 @@ namespace PW
             SetContentView(Resource.Layout.AddReminder);
             // Create your application here
         }
-
-
     }
 }

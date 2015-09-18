@@ -1,4 +1,4 @@
-using Android.OS;
+﻿using Android.OS;
 using System;
 using Android.Runtime;
 using System.Xml.Serialization;
@@ -14,26 +14,32 @@ namespace PW.Models
         /// <summary>
         /// Identyfikator przypomnienia
         /// </summary>
-        [XmlElement(ElementName ="id")]
+        [XmlElement(ElementName = "id")]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Data telefonu
         /// </summary>
-        [XmlElement(ElementName ="issueDate")]
+        [XmlElement(ElementName = "issueDate")]
         public DateTime DateOfIssue { get; set; }
 
         /// <summary>
         /// Dodatkowe informacje
         /// </summary>
-        [XmlElement(ElementName ="additionalInfo")]
+        [XmlElement(ElementName = "additionalInfo")]
         public string AdditionalInfo { get; set; }
 
         /// <summary>
         /// Numer telefonu
         /// </summary>
-        [XmlElement(ElementName ="phoneNumber")]
+        [XmlElement(ElementName = "phoneNumber")]
         public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Czy wykonano połączenie
+        /// </summary>
+        [XmlElement(ElementName = "callDone")]
+        public bool CallDone { get; set; }
 
         /// <summary>
         /// IParcelable member

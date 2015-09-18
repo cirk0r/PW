@@ -13,17 +13,6 @@
         android:layout_centerVertical="true"
         android:src="@drawable/icon" />
     <TextView
-        android:id="@+id/Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/Thumbnail"
-        android:lineSpacingExtra="3dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="5dp"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:typeface="sans" />
-    <TextView
         android:id="@+id/Description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,4 +22,27 @@
         android:paddingTop="5dp"
         android:textColor="#fff"
         android:textSize="11sp" />
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/PhoneNumber"
+        android:id="@+id/DateOfIssue"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:textColor="#fff"
+        android:textSize="11sp" />
+    <TextView
+        android:id="@+id/PhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/Thumbnail"
+        android:layout_below="@id/Description"
+        android:lineSpacingExtra="3dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:typeface="sans" />
 </RelativeLayout>

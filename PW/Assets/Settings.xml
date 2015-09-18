@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<reminders>
+<reminders id='0'>
   <reminder>
     <id>a11a7f66-8e18-4cb1-b5b7-d7591bb1691a</id>
     <issueDate>2015-09-02</issueDate>

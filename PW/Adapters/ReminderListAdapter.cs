@@ -50,8 +50,9 @@ namespace PW.Adapters
                 view = context.LayoutInflater.Inflate(Resource.Layout.ReminderView, parent, false);
 
             ReminderModel item = this[position];
-            view.FindViewById<TextView>(Resource.Id.Title).Text = item.PhoneNumber;
+            view.FindViewById<TextView>(Resource.Id.PhoneNumber).Text = item.PhoneNumber;
             view.FindViewById<TextView>(Resource.Id.Description).Text = item.AdditionalInfo;
+            view.FindViewById<TextView>(Resource.Id.DateOfIssue).Text = item.DateOfIssue.ToString();
 
             using (var imageView = view.FindViewById<ImageView>(Resource.Id.Thumbnail))
             {

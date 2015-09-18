@@ -26,13 +26,20 @@ namespace PW
             base.OnCreate(bundle);
 
             // Create your application here
-            //var reminders = Intent.Extras.Get("reminders")?.ToArray<ReminderModel>() ?? new ReminderModel[0];
-            //var path = Path.GetFullPath("Assets/");
             var stream = Assets.Open("Settings.xml", Android.Content.Res.Access.Buffer);
             if (stream != null)
                 settingsManager = new SettingsManager<ReminderModel>(stream);
 
-            var reminders = settingsManager.Deserialize();
+            //var reminders = settingsManager.Deserialize();
+            var reminders = new List<ReminderModel> {
+                new ReminderModel()
+                {
+                    DateOfIssue = DateTime.Now,
+                    AdditionalInfo = "pilne",
+                    Id = Guid.NewGuid(),
+                    PhoneNumber = "666666666"
+                }
+            };
 
             ListAdapter = new ReminderListAdapter(this, reminders);
         }

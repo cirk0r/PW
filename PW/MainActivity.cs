@@ -8,6 +8,8 @@ using Android.OS;
 using System.Collections.Generic;
 using PW.Helpers;
 using PW.Models;
+using PW.Adapters;
+using PW.Fragments;
 
 namespace PW
 {
@@ -18,7 +20,6 @@ namespace PW
         Button myRemindersButton;
         Button callHistoryButton;
         static readonly List<string> phoneNumbers = new List<string>();
-        ActivityCreator activityCreator;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -26,36 +27,54 @@ namespace PW
 
             SetContentView(Resource.Layout.Main);
 
-            activityCreator = new ActivityCreator();
+            ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
 
-            callHistoryButton = FindViewById<Button>(Resource.Id.historyButton);
-            myRemindersButton = FindViewById<Button>(Resource.Id.myRemindersButton);
-            addReminderButton = FindViewById<Button>(Resource.Id.addReminderButton);
+            AddTab("Lista", Resource.Drawable.list, new MyListFragment());
+            AddTab("Nowe", Resource.Drawable.add, new AddReminderFragment());
+            AddTab("Historia", Resource.Drawable.list, new HistoryFragment());
 
-            callHistoryButton.Click += CallHistoryButton_Click;
-            myRemindersButton.Click += MyRemindersButton_Click;
-            addReminderButton.Click += AddReminderButton_Click;
+            //callHistoryButton = FindViewById<Button>(Resource.Id.historyButton);
+            //myRemindersButton = FindViewById<Button>(Resource.Id.myRemindersButton);
+            //addReminderButton = FindViewById<Button>(Resource.Id.addReminderButton);
+
+            //callHistoryButton.Click += CallHistoryButton_Click;
+            //myRemindersButton.Click += MyRemindersButton_Click;
+            //addReminderButton.Click += AddReminderButton_Click;
+        }
+
+        void AddTab(string tabText, int iconResourceId, Fragment fragment)
+        {
+            var tab = this.ActionBar.NewTab();
+            tab.SetText(tabText);
+            tab.SetIcon(iconResourceId);
+
+            // must set event handler for replacing tabs tab
+            tab.TabSelected += delegate (object sender, ActionBar.TabEventArgs e) {
+                e.FragmentTransaction.Replace(Resource.Id.fragmentContainer, fragment);
+            };
+
+            this.ActionBar.AddTab(tab);
         }
 
         #region Events
-        private void AddReminderButton_Click(object sender, EventArgs e)
-        {
-            var intent = new Intent(this, typeof(AddReminderActivity));
-            StartActivityForResult(intent, 0);
-        }
+        //private void AddReminderButton_Click(object sender, EventArgs e)
+        //{
+        //    var intent = new Intent(this, typeof(AddReminderActivity));
+        //    StartActivityForResult(intent, 0);
+        //}
 
-        private void MyRemindersButton_Click(object sender, EventArgs e)
-        {
-            var intent = new Intent(this, typeof(MyRemindersActivity));
-            StartActivity(intent);
-        }
+        //private void MyRemindersButton_Click(object sender, EventArgs e)
+        //{
+        //    var intent = new Intent(this, typeof(MyRemindersActivity));
+        //    StartActivity(intent);
+        //}
 
-        private void CallHistoryButton_Click(object sender, EventArgs e)
-        {
-            var intent = new Intent(this, typeof(CallHistoryActivity));
-            intent.PutStringArrayListExtra("phoneNumbers", phoneNumbers);
-            StartActivity(intent);
-        }
+        //private void CallHistoryButton_Click(object sender, EventArgs e)
+        //{
+        //    var intent = new Intent(this, typeof(CallHistoryActivity));
+        //    intent.PutStringArrayListExtra("phoneNumbers", phoneNumbers);
+        //    StartActivity(intent);
+        //}
 
         //private void CallButton_Click(object sender, EventArgs e)
         //{

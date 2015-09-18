@@ -51,10 +51,13 @@
   <ItemGroup>
     <Compile Include="Adapters\ReminderListAdapter.cs" />
     <Compile Include="AddReminderActivity.cs" />
+    <Compile Include="Fragments\AddReminderFragment.cs" />
     <Compile Include="CallHistoryActivity.cs" />
+    <Compile Include="Fragments\MyListFragment.cs" />
     <Compile Include="Helpers\ActivityCreator.cs" />
     <Compile Include="Helpers\PhoneTranslator.cs" />
     <Compile Include="Helpers\SettingsManager.cs" />
+    <Compile Include="Fragments\HistoryFragment.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Models\ReminderModel.cs" />
     <Compile Include="MyRemindersActivity.cs" />
@@ -87,7 +90,12 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\Settings.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\list.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

@@ -45,7 +45,13 @@ namespace PW
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int add = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Icon = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int list = 2130837506;
 			
 			static Drawable()
 			{
@@ -60,11 +66,17 @@ namespace PW
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f05000b
-			public const int Description = 2131034123;
+			// aapt resource value: 0x7f05000c
+			public const int DateOfIssue = 2131034124;
 			
 			// aapt resource value: 0x7f050009
-			public const int Thumbnail = 2131034121;
+			public const int Description = 2131034121;
+			
+			// aapt resource value: 0x7f05000b
+			public const int PhoneNumber = 2131034123;
+			
+			// aapt resource value: 0x7f050008
+			public const int Thumbnail = 2131034120;
 			
 			// aapt resource value: 0x7f05000a
 			public const int Title = 2131034122;
@@ -75,14 +87,11 @@ namespace PW
 			// aapt resource value: 0x7f050001
 			public const int dateText = 2131034113;
 			
-			// aapt resource value: 0x7f050008
-			public const int historyButton = 2131034120;
+			// aapt resource value: 0x7f050007
+			public const int fragmentContainer = 2131034119;
 			
 			// aapt resource value: 0x7f050003
 			public const int infoText = 2131034115;
-			
-			// aapt resource value: 0x7f050007
-			public const int myRemindersButton = 2131034119;
 			
 			// aapt resource value: 0x7f050005
 			public const int phoneText = 2131034117;
