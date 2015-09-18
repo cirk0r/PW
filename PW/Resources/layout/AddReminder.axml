@@ -2,18 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:fadeScrollbars="true"
+    android:overScrollMode="always"
+    android:scrollbars="vertical">
     <TextView
         android:text="Data:"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView4" />
-    <EditText
-        android:inputType="date"
+    <DatePicker
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/dateText" />
+        android:layout_height="253.8dp"
+        android:id="@+id/datePicker"
+        android:startYear="2015"
+        android:minDate="2015-09-19" />
     <TextView
         android:text="Dodatkowe inormacje:"
         android:textAppearance="?android:attr/textAppearanceMedium"

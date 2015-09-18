@@ -18,6 +18,9 @@ namespace PW
 
             var view = inflater.Inflate(Resource.Layout.AddReminder, container, false);
             var addReminderbutton = view.FindViewById<Button>(Resource.Id.addReminderButton);
+            var datePicker = view.FindViewById<DatePicker>(Resource.Id.datePicker);
+
+            datePicker.UpdateDate(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
 
             addReminderbutton.Click += AddReminderbutton_Click;
 
@@ -30,14 +33,14 @@ namespace PW
             {
                 ReminderModel data = new ReminderModel()
                 {
-                    AdditionalInfo = View.FindViewById<TextView>(Resource.Id.phoneText).Text,
-                    DateOfIssue = DateTime.Parse(View.FindViewById<TextView>(Resource.Id.dateText).Text),
-                    PhoneNumber = View.FindViewById<TextView>(Resource.Id.phoneText).Text,
+                    AdditionalInfo = View.FindViewById<EditText>(Resource.Id.phoneText).Text,
+                    DateOfIssue = View.FindViewById<DatePicker>(Resource.Id.datePicker).DateTime,
+                    PhoneNumber = View.FindViewById<EditText>(Resource.Id.phoneText).Text,
                     Id = Guid.NewGuid(),
                     CallDone = false
                 };
 
-                var path = Path.GetFullPath(string.Format("{0}\\{1}", System.Environment.CurrentDirectory, "Assets\\Settings.xml"));
+                var path = Path.GetFullPath(string.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory, "Assets\\Settings.xml"));
 
                 if (!string.IsNullOrWhiteSpace(path) && File.Exists(path))
                 {
@@ -52,6 +55,13 @@ namespace PW
                         Toast.MakeText(Activity, "Dodano przypomnienie", ToastLength.Long).Show();
                     });
 
+                }
+                else
+                {
+                    Activity.RunOnUiThread(() =>
+                    {
+                        Toast.MakeText(Activity, "Nie odnaleziono pliku ustawień", ToastLength.Long).Show();
+                    });
                 }
             }
             catch (Exception ex)

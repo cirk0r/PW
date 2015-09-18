@@ -19,6 +19,7 @@ namespace PW
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.AddReminder);
+
             // Create your application here
         }
     }

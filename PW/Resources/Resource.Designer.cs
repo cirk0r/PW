@@ -85,7 +85,7 @@ namespace PW
 			public const int addReminderButton = 2131034118;
 			
 			// aapt resource value: 0x7f050001
-			public const int dateText = 2131034113;
+			public const int datePicker = 2131034113;
 			
 			// aapt resource value: 0x7f050007
 			public const int fragmentContainer = 2131034119;
