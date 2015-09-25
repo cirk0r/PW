@@ -14,7 +14,7 @@ using PW.Fragments;
 namespace PW
 {
     [Activity(Label = "@string/ApplicationName", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Activity
+    public class MainActivity : Activity, ActionBar.ITabListener
     {
         Button addReminderButton;
         Button myRemindersButton;
@@ -32,7 +32,7 @@ namespace PW
             AddTab("Lista", Resource.Drawable.list, new MyListFragment());
             AddTab("Nowe", Resource.Drawable.add, new AddReminderFragment());
             AddTab("Historia", Resource.Drawable.list, new HistoryFragment());
-
+            
             //callHistoryButton = FindViewById<Button>(Resource.Id.historyButton);
             //myRemindersButton = FindViewById<Button>(Resource.Id.myRemindersButton);
             //addReminderButton = FindViewById<Button>(Resource.Id.addReminderButton);
@@ -54,6 +54,30 @@ namespace PW
             };
 
             this.ActionBar.AddTab(tab);
+        }
+
+        public void OnTabReselected(ActionBar.Tab tab, FragmentTransaction ft)
+        {
+            this.RunOnUiThread(() =>
+            {
+                Toast.MakeText(this, "OnTabReselected " + tab.Text, ToastLength.Long).Show();
+            });
+        }
+
+        public void OnTabSelected(ActionBar.Tab tab, FragmentTransaction ft)
+        {
+            this.RunOnUiThread(() =>
+            {
+                Toast.MakeText(this, "OnTabSelected " + tab.Text, ToastLength.Long).Show();
+            });
+        }
+
+        public void OnTabUnselected(ActionBar.Tab tab, FragmentTransaction ft)
+        {
+            this.RunOnUiThread(() =>
+            {
+                Toast.MakeText(this, "OnTabUnselected " + tab.Text, ToastLength.Long).Show();
+            });
         }
 
         #region Events

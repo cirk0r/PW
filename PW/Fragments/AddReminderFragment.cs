@@ -18,8 +18,13 @@ namespace PW
 
             var view = inflater.Inflate(Resource.Layout.AddReminder, container, false);
             var addReminderbutton = view.FindViewById<Button>(Resource.Id.addReminderButton);
-            var datePicker = view.FindViewById<DatePicker>(Resource.Id.datePicker);
 
+            var datePicker = view.FindViewById<DatePicker>(Resource.Id.datePicker);
+            var info = view.FindViewById<EditText>(Resource.Id.infoText);
+            var phone = view.FindViewById<EditText>(Resource.Id.phoneText);
+
+            info.Text = string.Empty;
+            phone.Text = string.Empty;
             datePicker.UpdateDate(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
 
             addReminderbutton.Click += AddReminderbutton_Click;
@@ -27,7 +32,7 @@ namespace PW
             return view;
         }
 
-        private void AddReminderbutton_Click(object sender, System.EventArgs e)
+        private void AddReminderbutton_Click(object sender, EventArgs e)
         {
             try
             {
